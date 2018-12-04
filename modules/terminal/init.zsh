@@ -57,7 +57,7 @@ function _terminal-set-titles-with-command {
   else
     # Set the command name, or in the case of sudo or ssh, the next command.
     local cmd="${${2[(wr)^(*=*|sudo|ssh|-*)]}:t}"
-    local truncated_cmd="${cmd/(#m)?(#c15,)/${MATCH[1,12]}...}"
+    local truncated_cmd="${cmd/(#m)?(#c15,)/${MATCH[1,12]}…}"
     unset MATCH
 
     if [[ "$TERM" == screen* ]]; then
@@ -75,7 +75,7 @@ function _terminal-set-titles-with-path {
 
   local absolute_path="${${1:a}:-$PWD}"
   local abbreviated_path="${absolute_path/#$HOME/~}"
-  local truncated_path="${abbreviated_path/(#m)?(#c15,)/...${MATCH[-12,-1]}}"
+  local truncated_path="${abbreviated_path/(#m)?(#c15,)/…${MATCH[-12,-1]}}"
   unset MATCH
 
   if [[ "$TERM" == screen* ]]; then

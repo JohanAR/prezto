@@ -46,12 +46,12 @@ function prompt_sorin_async_callback {
         # No git target detected, flush the git fragment and redisplay the prompt.
         if [[ -n "$_prompt_sorin_git" ]]; then
           _prompt_sorin_git=''
-          zle && zle reset-prompt
+          zle && zle .reset-prompt
         fi
       else
         # Git target detected, update the git fragment and redisplay the prompt.
         _prompt_sorin_git="${_git_target}${_git_post_target}"
-        zle && zle reset-prompt
+        zle && zle .reset-prompt
       fi
       ;;
   esac
@@ -129,18 +129,18 @@ function prompt_sorin_setup {
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action' format '%F{7}:%f%%B%F{9}%s%f%%b'
-  zstyle ':prezto:module:git:info:added' format ' %%B%F{2}✚%f%%b'
-  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{13}⬆%f%%b'
-  zstyle ':prezto:module:git:info:behind' format ' %%B%F{13}⬇%f%%b'
+  zstyle ':prezto:module:git:info:added' format ' %%B%F{2}%a✚%f%%b'
+  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{13}%A⬆%f%%b'
+  zstyle ':prezto:module:git:info:behind' format ' %%B%F{13}%B⬇%f%%b'
   zstyle ':prezto:module:git:info:branch' format ' %%B%F{2}%b%f%%b'
   zstyle ':prezto:module:git:info:commit' format ' %%B%F{3}%.7c%f%%b'
-  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{1}✖%f%%b'
-  zstyle ':prezto:module:git:info:modified' format ' %%B%F{4}✱%f%%b'
+  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{1}%d✖%f%%b'
+  zstyle ':prezto:module:git:info:modified' format ' %%B%F{4}%m✱%f%%b'
   zstyle ':prezto:module:git:info:position' format ' %%B%F{13}%p%f%%b'
-  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{5}➜%f%%b'
-  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{6}✭%f%%b'
-  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}═%f%%b'
-  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{7}◼%f%%b'
+  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{5}%r➜%f%%b'
+  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{6}%S✭%f%%b'
+  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}%U═%f%%b'
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{7}%u◼%f%%b'
   zstyle ':prezto:module:git:info:keys' format \
     'status' '%b %p %c:%s%A%B%S%a%d%m%r%U%u'
 
