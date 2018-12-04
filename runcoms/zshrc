@@ -15,5 +15,7 @@ fi
 setopt interactivecomments
 unsetopt sharehistory
 
+ZSH_HIGHLIGHT_STYLES[cursor]='bg=blue'
+
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
